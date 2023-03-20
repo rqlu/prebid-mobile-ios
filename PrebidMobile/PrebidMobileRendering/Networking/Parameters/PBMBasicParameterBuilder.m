@@ -113,6 +113,10 @@
         bidRequest.imp = @[[[PBMORTBImp alloc] init]];
     }
     
+    if (self.sdkConfiguration.pbsDebug) {
+        bidRequest.test = @(1);
+    }
+
     for (PBMORTBImp *rtbImp in bidRequest.imp) {
         rtbImp.displaymanager = self.adConfiguration.isOriginalAPI ? nil : @"prebid-mobile";
         rtbImp.displaymanagerver = self.adConfiguration.isOriginalAPI ? nil : self.sdkVersion;
